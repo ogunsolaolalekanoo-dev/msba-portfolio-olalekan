@@ -1,2 +1,38 @@
-# msba-portfolio-olalekan
-End-to-end churn prediction system using XGBoost with ROC-AUC optimization, threshold strategy, and segment-driven retention planning.
+TruSource Customer Churn Prediction
+Business Context
+
+TruSource experiences a churn rate of approximately 26.5 percent, meaning more than one in four customers eventually leave. Because acquiring new customers is significantly more expensive than retaining existing ones, the business objective is to develop an early-warning system that prioritizes high-risk customers for targeted intervention.
+
+Modeling Strategy
+
+Multiple models were evaluated using Stratified 5-Fold Cross-Validation, including Logistic Regression, Random Forest, Gradient Boosting, and XGBoost.
+
+XGBoost achieved the strongest performance.
+
+Cross-Validated ROC-AUC: 0.9002
+Final Test ROC-AUC: 0.9086
+Final Test PR-AUC: 0.7828
+
+A probability threshold of 0.40 was selected to balance recall and precision while aligning with operational capacity.
+
+Key Analytical Insights
+
+Churn risk is concentrated early in the customer lifecycle.
+
+Billing friction and extra data fees significantly increase churn probability.
+
+Greater service adoption reduces churn risk.
+
+Segment-specific retention strategies outperform blanket discounts.
+
+How to Reproduce
+
+Open the notebook.
+
+Run cells sequentially from top to bottom.
+
+The final section generates churn probabilities and holdout scoring output.
+
+Limitation
+
+The model relies on historical behavioral patterns and should be monitored over time for potential data drift.
