@@ -36,3 +36,11 @@ The final section generates churn probabilities and holdout scoring output.
 Limitation
 
 The model relies on historical behavioral patterns and should be monitored over time for potential data drift.
+## Model Evaluation Summary
+
+The final model was evaluated using a stratified train-test split.  
+Holdout ROC-AUC: 0.8996  
+Confusion Matrix: TN=903, FP=131, FN=99, TP=274  
+
+This confirms the model generalizes well to unseen data and captures approximately 73.5% of churners while maintaining reasonable precision and helping Tru-Source ro save money.
+
