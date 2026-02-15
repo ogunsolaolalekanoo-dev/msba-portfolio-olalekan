@@ -64,9 +64,11 @@ Threshold governance
 Drift monitoring
 
 **Repository Structure**
-notebooks/   → Modeling pipeline
-outputs/     → Holdout scoring artifacts
-individual/  → Reflection and deployment analysis
+
+notebooks/Modeling pipeline
+outputs/Holdout scoring artifacts
+individual/Reflection and deployment analysis
+
 **How to Reproduce**
 
 Clone the repository.
