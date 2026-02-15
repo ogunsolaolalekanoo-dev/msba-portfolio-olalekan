@@ -72,14 +72,23 @@ individual/  → Reflection and deployment analysis
 **Project Structure**
 
 ├── notebooks/
+
 │   └── churn_model.ipynb
+
 ├── outputs/
-│   └── holdout_scored.csv
+
+│   └── scored_holdout.csv
+
 ├── individual/
+
 │   ├── contribution.md
+
 │   ├── track1.md
+
 │   └── track2.md
+
 ├── requirements.txt
+
 └── README.md
 
 
