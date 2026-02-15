@@ -69,6 +69,21 @@ outputs/     → Holdout scoring artifacts
 individual/  → Reflection and deployment analysis
 
 
+**Project Structure**
+
+├── notebooks/
+│   └── churn_model.ipynb
+├── outputs/
+│   └── holdout_scored.csv
+├── individual/
+│   ├── contribution.md
+│   ├── track1.md
+│   └── track2.md
+├── requirements.txt
+└── README.md
+
+
+
 **How to Reproduce**
 
 Clone the repository.
