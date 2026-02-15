@@ -5,16 +5,13 @@ TruSource experiences a churn rate of approximately 26.5 percent, meaning more t
 
 Modeling Strategy
 
-Multiple models were evaluated using Stratified 5-Fold Cross-Validation, including Logistic Regression, Random Forest, Gradient Boosting, and XGBoost.
+Data was splitted using stratified sampling to preserve churn rate distribution. Multiple models were evaluated using Stratified 5-Fold Cross-Validation, including Logistic Regression, Random Forest, Gradient Boosting, and XGBoost.
 
-XGBoost achieved the strongest performance.
+XGBoost achieved the highest cross-validated ROC-AUC (0.9002) and strong generalization performance on the holdout set (ROC-AUC: 0.8996–0.9086 depending on split).
 
-Cross-Validated ROC-AUC: 0.9002
-Final Test ROC-AUC: 0.9086
-Final Test PR-AUC: 0.7828
+Threshold optimization was performed to balance recall and precision. A probability cutoff of 0.40 was selected based on F1 maximization and operational tradeoff analysis.
 
-A probability threshold of 0.40 was selected to balance recall and precision while aligning with operational capacity.
-
+Model interpretability was supported using feature importance and SHAP analysis.
 Key Analytical Insights
 
 Churn risk is concentrated early in the customer lifecycle.
@@ -43,4 +40,13 @@ Holdout ROC-AUC: 0.8996
 Confusion Matrix: TN=903, FP=131, FN=99, TP=274  
 
 This confirms the model generalizes well to unseen data and captures approximately 73.5% of churners while maintaining reasonable precision and helping Tru-Source avoid over retention which saves money.
+## Technical Stack
+- Python
+- Scikit-learn
+- XGBoost
+- Pandas
+- NumPy
+- SHAP
+- Matplotlib
+
 
