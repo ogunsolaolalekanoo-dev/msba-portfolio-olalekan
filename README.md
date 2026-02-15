@@ -1,52 +1,105 @@
 TruSource Customer Churn Prediction
-Business Context
+Overview
 
-TruSource experiences a churn rate of approximately 26.5 percent, meaning more than one in four customers eventually leave. Because acquiring new customers is significantly more expensive than retaining existing ones, the business objective is to develop an early-warning system that prioritizes high-risk customers for targeted intervention.
+TruSource experiences a churn rate of approximately 26.5%, meaning more than one in four customers eventually leave. Because acquisition is significantly more expensive than retention, the objective of this project is to build a reliable early-warning system that prioritizes high-risk customers for targeted intervention.
 
-Modeling Strategy
+This repository contains a complete churn modeling pipeline including preprocessing, cross-validation, threshold optimization, interpretability analysis, and holdout scoring.
 
-Data was splitted using stratified sampling to preserve churn rate distribution. Multiple models were evaluated using Stratified 5-Fold Cross-Validation, including Logistic Regression, Random Forest, Gradient Boosting, and XGBoost.
+Modeling Pipeline
 
-XGBoost achieved the highest cross-validated ROC-AUC (0.9002) and strong generalization performance on the holdout set (ROC-AUC: 0.8996–0.9086 depending on split).
+Data Preparation
 
-Threshold optimization was performed to balance recall and precision. A probability cutoff of 0.40 was selected based on F1 maximization and operational tradeoff analysis.
+Feature engineering (lifecycle, billing intensity, service depth)
 
-Model interpretability was supported using feature importance and SHAP analysis.
-Key Analytical Insights
+Median imputation for numeric features
 
-Churn risk is concentrated early in the customer lifecycle.
+One-hot encoding for categorical features
 
-Billing friction and extra data fees significantly increase churn probability.
+Stratified train-test split
 
-Greater service adoption reduces churn risk.
+Model Comparison (Stratified 5-Fold CV, ROC-AUC)
 
-Segment-specific retention strategies outperform blanket discounts.
+Model	CV ROC-AUC
+Logistic Regression	0.8875
+Random Forest	0.8748
+Gradient Boosting	0.8976
+XGBoost	0.9002
 
+XGBoost was selected based on highest cross-validated performance and stable holdout generalization.
+
+Final Model Performance
+
+Holdout ROC-AUC: 0.8996 – 0.9086
+Holdout PR-AUC: 0.7828
+Accuracy: 83.7%
+
+Confusion Matrix (Threshold = 0.40 optimized):
+
+True Negatives: 903
+
+False Positives: 131
+
+False Negatives: 99
+
+True Positives: 274
+
+Threshold 0.40 was selected based on F1 maximization and operational tradeoff analysis.
+
+Interpretability
+
+Feature importance analysis
+
+SHAP summary and dependence plots
+
+Segment-based churn pathway interpretation
+
+Deployment Considerations
+
+Batch scoring architecture
+
+CRM integration
+
+Threshold governance
+
+Drift monitoring
+Repository Structure
+notebooks/   → Modeling pipeline
+outputs/     → Holdout scoring artifacts
+individual/  → Reflection and deployment analysis
 How to Reproduce
 
-Open the notebook.
+Clone the repository.
 
-Run cells sequentially from top to bottom.
+Open notebooks/churn_model.ipynb.
 
-The final section generates churn probabilities and holdout scoring output.
+Install required packages (example):
+
+pip install pandas numpy scikit-learn xgboost shap matplotlib
+
+
+Run the notebook top-to-bottom.
+
+Final model evaluation (holdout metrics) will print near the end.
+
+Scored holdout predictions will be saved to:
+
+outputs/scored_holdout.csv
+Technical Stack
+
+Python
+
+Pandas
+
+NumPy
+
+Scikit-learn
+
+XGBoost
+
+SHAP
+
+Matplotlib
 
 Limitation
 
-The model relies on historical behavioral patterns and should be monitored over time for potential data drift.
-## Model Evaluation Summary
-
-The final model was evaluated using a stratified train-test split.  
-Holdout ROC-AUC: 0.8996  
-Confusion Matrix: TN=903, FP=131, FN=99, TP=274  
-
-This confirms the model generalizes well to unseen data and captures approximately 73.5% of churners while maintaining reasonable precision and helping Tru-Source avoid over retention which saves money.
-## Technical Stack
-- Python
-- Scikit-learn
-- XGBoost
-- Pandas
-- NumPy
-- SHAP
-- Matplotlib
-
-
+Model performance is based on historical behavior patterns. Future shifts in usage, pricing, or customer behavior may require retraining and monitoring.
