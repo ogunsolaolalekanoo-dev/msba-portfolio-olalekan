@@ -15,12 +15,7 @@ This repository contains a complete churn modeling pipeline including preprocess
 -Feature engineering:
 
 Lifecycle indicators (tenure groups, early-lifecycle flags)
-
-Billing intensity features (avg_billed_per_month)
-
-Friction signals (extra_data_fees_total, refunds_total)
-
-Service depth metrics (services_addon_count)
+,Billing intensity features (avg_billed_per_month),Friction signals (extra_data_fees_total, refunds_total), Service depth metrics (services_addon_count)
 
 -Behavioral aggregation signals
 
