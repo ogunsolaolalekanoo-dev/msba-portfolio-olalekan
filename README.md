@@ -1,5 +1,8 @@
-**TruSource Customer Churn Prediction**
-**Overview**
+**TruSource Churn Risk Modeling & Retention Intelligence Platform**
+
+Winner – Spring 2026 Case Competition
+
+**Executive Overview**
 
 TruSource experiences a churn rate of approximately 26.5%, meaning more than one in four customers eventually leave. Because acquisition is significantly more expensive than retention, the objective of this project is to build a reliable early-warning system that prioritizes high-risk customers for targeted intervention.
 
