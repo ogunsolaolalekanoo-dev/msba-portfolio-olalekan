@@ -10,7 +10,7 @@ This repository contains a complete churn modeling pipeline including preprocess
 
 **Modeling Pipeline**
 
-**Data Preparation**
+Data Preparation
 
 Feature engineering (lifecycle, billing intensity, service depth)
 
