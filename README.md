@@ -54,13 +54,46 @@ True Positives: 274
 
 Threshold 0.40 was selected based on F1 maximization and operational tradeoff analysis.
 
-**Interpretability**
+**Model Interpretability**
 
-Feature importance analysis
+Gain-based feature importance
 
-SHAP summary and dependence plots
+SHAP summary plots
 
-Segment-based churn pathway interpretation
+SHAP dependence plots
+
+Interaction-level analysis
+
+Top drivers included:
+
+Contract term (month-to-month)
+
+Billing friction signals
+
+Service adoption depth
+
+Tenure lifecycle
+
+Interpretability was critical for translating model output into business action.
+
+Behavioral Segmentation Layer
+
+To bridge prediction and execution, customers were segmented into mutually exclusive, collectively exhaustive behavioral categories:
+
+New & Under-Adopted
+
+Bill-Shock Risk
+
+Service-Recovery
+
+Embedded Premium
+
+Stable Core
+
+Segmentation was rule-based using percentile-driven breakpoints derived from distributional analysis, avoiding target leakage.
+
+This enabled targeted retention playbooks rather than uniform discounts.
+
 
 **Deployment Considerations**
 
