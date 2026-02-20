@@ -10,15 +10,26 @@ This repository contains a complete churn modeling pipeline including preprocess
 
 **Modeling Pipeline**
 
-Data Preparation
+-Data Preparation
 
-Feature engineering (lifecycle, billing intensity, service depth)
+-Feature engineering:
 
-Median imputation for numeric features
+Lifecycle indicators (tenure groups, early-lifecycle flags)
 
-One-hot encoding for categorical features
+Billing intensity features (avg_billed_per_month)
 
-Stratified train-test split
+Friction signals (extra_data_fees_total, refunds_total)
+
+Service depth metrics (services_addon_count)
+
+-Behavioral aggregation signals
+
+-Median imputation for numeric features
+
+-One-hot encoding for categorical features
+
+-Stratified train-test split
+
 
 **Model Comparison (Stratified 5-Fold CV, ROC-AUC)**
 
